@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAMSAT S3 Plan</title>
+<meta name="description" content="A 21-week Section 3 study plan for the March 2027 GAMSAT, built on Jesse Osbourne's videos, for someone with a chemistry background who needs to rebuild high-school physics and maths first.">
+<style>
+  :root {
+    --bg: #f7f6f2;
+    --surface: #ffffff;
+    --surface-2: #f0eee8;
+    --text: #1d1d1b;
+    --muted: #5d5b55;
+    --border: #e1ded5;
+    --accent: #2f5bd3;
+    --accent-soft: #e6ecfb;
+    --jesse: #c2410c;
+    --jesse-soft: #fdeee4;
+    --good: #1f7a4d;
+    --good-soft: #e3f3ea;
+    --warn: #a15c00;
+    --warn-soft: #fbf0dc;
+    --bad: #b42318;
+    --bad-soft: #fbe6e4;
+    --p1: #2f5bd3; --p2: #7a4cc2; --p3: #c2410c; --p4: #1f7a4d; --p5: #5d5b55;
+    --radius: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --surface: #1d1d1b; --surface-2: #262623; --text: #ecebe6; --muted: #a8a59c;
+      --border: #34332f; --accent: #8aa8ff; --accent-soft: #1f2a48; --jesse: #fb923c; --jesse-soft: #3a2416;
+      --good: #6fd19c; --good-soft: #17301f; --warn: #f2b45a; --warn-soft: #36290f; --bad: #f28b82; --bad-soft: #3a1c1a;
+      --p1: #8aa8ff; --p2: #b996f0; --p3: #fb923c; --p4: #6fd19c; --p5: #a8a59c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141413; --surface: #1d1d1b; --surface-2: #262623; --text: #ecebe6; --muted: #a8a59c;
+    --border: #34332f; --accent: #8aa8ff; --accent-soft: #1f2a48; --jesse: #fb923c; --jesse-soft: #3a2416;
+    --good: #6fd19c; --good-soft: #17301f; --warn: #f2b45a; --warn-soft: #36290f; --bad: #f28b82; --bad-soft: #3a1c1a;
+    --p1: #8aa8ff; --p2: #b996f0; --p3: #fb923c; --p4: #6fd19c; --p5: #a8a59c;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+  header.top { padding: 48px 0 24px; }
+  .eyebrow { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.1; margin: 0 0 12px; letter-spacing: -.02em; }
+  h2 { font-size: 26px; margin: 0 0 6px; letter-spacing: -.01em; }
+  h3 { font-size: 18px; margin: 0 0 6px; }
+  .lede { font-size: 18px; color: var(--muted); max-width: 680px; margin: 0; }
+  nav.tabs {
+    position: sticky; top: 0; z-index: 5; background: var(--bg);
+    border-bottom: 1px solid var(--border); margin-bottom: 8px;
+  }
+  nav.tabs .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+  nav.tabs a {
+    white-space: nowrap; text-decoration: none; color: var(--muted); padding: 12px 10px;
+    font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent;
+  }
+  nav.tabs a:hover { color: var(--text); border-bottom-color: var(--border); }
+  section { padding: 40px 0 8px; scroll-margin-top: 48px; }
+  .sub { color: var(--muted); margin: 0 0 20px; max-width: 700px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .grid { display: grid; gap: 12px; }
+  .g2 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .g3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 28px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .stat .v { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 13px; color: var(--muted); }
+  .stat input[type=date] {
+    font: inherit; font-size: 13px; color: var(--text); background: var(--surface-2);
+    border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; margin-top: 4px; max-width: 100%;
+  }
+  .jesse-banner {
+    background: var(--jesse-soft); border: 1px solid color-mix(in srgb, var(--jesse) 35%, transparent);
+    border-radius: var(--radius); padding: 20px; margin-top: 20px;
+  }
+  .jesse-banner h3 { color: var(--jesse); }
+  .jesse-banner p { margin: 0 0 8px; }
+  .jesse-banner p:last-child { margin-bottom: 0; }
+  .tag {
+    display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+    background: var(--surface-2); color: var(--muted); margin-right: 4px; vertical-align: middle;
+  }
+  .tag.j { background: var(--jesse-soft); color: var(--jesse); }
+  .tag.ka { background: var(--accent-soft); color: var(--accent); }
+  .tag.acer { background: var(--good-soft); color: var(--good); }
+  .tag.drill { background: var(--warn-soft); color: var(--warn); }
+  ul.clean { margin: 0; padding-left: 18px; }
+  ul.clean li { margin: 4px 0; }
+
+  /* Phase strip */
+  .phasebar { display: flex; border-radius: 8px; overflow: hidden; height: 12px; margin: 8px 0 12px; }
+  .phasebar span { display: block; height: 100%; }
+  .phase-legend { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+  .phase-legend .card { padding: 14px; border-top: 4px solid var(--c); }
+  .phase-legend .when { font-size: 13px; color: var(--muted); }
+  .phase-legend p { margin: 6px 0 0; font-size: 14px; }
+
+  /* Progress */
+  .progress-row { display: flex; align-items: center; gap: 12px; margin: 24px 0 12px; flex-wrap: wrap; }
+  .progress { flex: 1; min-width: 160px; height: 10px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+  .progress > div { height: 100%; width: 0; background: var(--good); transition: width .3s; }
+  .progress-row .pct { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  button.ghost {
+    font: inherit; font-size: 13px; background: none; color: var(--muted); border: 1px solid var(--border);
+    border-radius: 8px; padding: 4px 10px; cursor: pointer;
+  }
+  button.ghost:hover { color: var(--text); }
+
+  /* Weeks */
+  details.week {
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--c);
+    border-radius: var(--radius); margin-bottom: 8px;
+  }
+  details.week.current { box-shadow: 0 0 0 2px var(--accent); }
+  details.week summary {
+    list-style: none; cursor: pointer; padding: 14px 16px; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap;
+  }
+  details.week summary::-webkit-details-marker { display: none; }
+  details.week summary .wk { font-weight: 700; min-width: 64px; }
+  details.week summary .dt { color: var(--muted); font-size: 14px; min-width: 110px; font-variant-numeric: tabular-nums; }
+  details.week summary .ti { flex: 1; min-width: 180px; font-weight: 500; }
+  details.week summary .ct { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  details.week summary .now { font-size: 11px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 2px 8px; border-radius: 999px; }
+  details.week .body { padding: 0 16px 14px; }
+  details.week .body .goal { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
+  label.task { display: flex; gap: 10px; padding: 6px 0; border-top: 1px solid var(--border); cursor: pointer; align-items: flex-start; }
+  label.task input { margin-top: 5px; accent-color: var(--good); flex-shrink: 0; width: 16px; height: 16px; }
+  label.task.done span.t { color: var(--muted); text-decoration: line-through; }
+
+  /* Daily routine */
+  .routine { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 12px; }
+  .routine .card { padding: 14px; }
+  .routine .mins { font-size: 22px; font-weight: 700; }
+
+  /* Topic checklist */
+  .topics { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .topics .card h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .topics .card h3 small { font-size: 12px; color: var(--muted); font-weight: 500; }
+  .topics label.task { font-size: 14px; }
+  code, .f { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+
+  /* Matrix */
+  .matrix { display: grid; grid-template-columns: auto 1fr 1fr; gap: 6px; }
+  .matrix .h { font-size: 13px; font-weight: 600; color: var(--muted); padding: 6px; display: flex; align-items: end; }
+  .matrix .rh { font-size: 13px; font-weight: 600; color: var(--muted); padding: 6px; display: flex; align-items: center; }
+  .matrix .cell { border-radius: 10px; padding: 12px; font-size: 14px; }
+  .matrix .cell b { display: block; margin-bottom: 2px; }
+  .c-good { background: var(--good-soft); } .c-good b { color: var(--good); }
+  .c-warn { background: var(--warn-soft); } .c-warn b { color: var(--warn); }
+  .c-bad { background: var(--bad-soft); } .c-bad b { color: var(--bad); }
+  .c-acc { background: var(--accent-soft); } .c-acc b { color: var(--accent); }
+
+  table.log { width: 100%; border-collapse: collapse; font-size: 14px; }
+  table.log th, table.log td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.log th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+  .scroll-x { overflow-x: auto; }
+
+  /* Resources */
+  .res { display: grid; gap: 12px; }
+  .res .card { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+  .res .rank { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; font-weight: 700; background: var(--surface-2); color: var(--muted); }
+  .res .card.top { border-color: color-mix(in srgb, var(--jesse) 45%, transparent); background: var(--jesse-soft); }
+  .res .card.top .rank { background: var(--jesse); color: #fff; }
+  .res p { margin: 4px 0 0; font-size: 15px; }
+
+  /* Original guide */
+  blockquote { margin: 0; padding: 12px 16px; border-left: 3px solid var(--jesse); background: var(--surface); border-radius: 0 8px 8px 0; color: var(--muted); font-style: italic; }
+  .quotes { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+
+  footer { padding: 48px 0 64px; color: var(--muted); font-size: 14px; }
+  @media (max-width: 560px) {
+    details.week summary .dt { min-width: 0; }
+    .matrix { grid-template-columns: 1fr 1fr; }
+    .matrix .h:first-child, .matrix .rh { display: none; }
+    .matrix .h { display: none; }
+  }
+  @media print {
+    nav.tabs, button.ghost { display: none; }
+    details.week { break-inside: avoid; }
+    details.week:not([open]) .body { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">GAMSAT Section 3 · March 2027 sitting</p>
+    <h1>From rusty physics to a strong S3</h1>
+    <p class="lede">A 21-week plan for a chem-background candidate. Rebuild high-school physics and maths with Jesse Osbourne first, then shift to ACER questions, a careful review log and timed papers. It's adapted from a guide by someone with no science background who scored 85 in S3 after four months of prep.</p>
+    <div class="stats">
+      <div class="stat"><div class="v" id="daysLeft">—</div><div class="l">days until exam</div></div>
+      <div class="stat"><div class="v" id="weekNow">—</div><div class="l">current plan week</div></div>
+      <div class="stat"><div class="v" id="pctDone">0%</div><div class="l">weekly tasks ticked</div></div>
+      <div class="stat">
+        <div class="l">Exam date (set yours)</div>
+        <input type="date" id="examDate" value="2027-03-06" aria-label="Exam date">
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap">
+    <a href="#approach">Approach</a>
+    <a href="#plan">21-week plan</a>
+    <a href="#daily">Daily routine</a>
+    <a href="#topics">Physics &amp; maths checklist</a>
+    <a href="#review">Review system</a>
+    <a href="#resources">Resources</a>
+    <a href="#guide">Original guide</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <h2>The approach</h2>
+    <p class="sub">The original guide's main point: S3 tests reasoning and approximation, not recall of content. Learn only the content that makes you faster in the exam, and start doing questions early.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>Chemistry is your time bank</h3>
+        <p style="margin:0">You already have the chemistry. Your goal there is to be <em>fast</em>, so you can bank minutes on chem stems and spend them on physics and unfamiliar bio graphs. Skim Jesse's chem videos to see how GAMSAT frames the material, but don't relearn it.</p>
+      </div>
+      <div class="card">
+        <h3>Physics and maths come first</h3>
+        <p style="margin:0">Physics only needs to be at <strong>high-school level</strong>, but you need to know the core formulae well and be quick at algebra. You can't use a calculator, so logs, scientific notation and rearranging equations need to become automatic.</p>
+      </div>
+      <div class="card">
+        <h3>Bio is mostly reading</h3>
+        <p style="margin:0">Biology questions are mostly graph reading and pulling the relevant facts out of wordy stems. Jesse's bio crash course plus plenty of practice questions is enough. Don't over-study the content.</p>
+      </div>
+    </div>
+
+    <div class="jesse-banner">
+      <h3>Start with Jesse Osbourne</h3>
+      <p>The author called Jesse their "goat". In this plan his videos are your <strong>first stop for every topic</strong>, and Khan Academy is only for filling gaps when a Jesse video feels too advanced.</p>
+      <p><strong>The method:</strong> take paper notes on every video (colours, highlighters, whatever keeps you engaged). Pause and work each practice question with him before he solves it. If a video loses you, go to Khan Academy or Google for that concept, then come back and <strong>rewatch until the video no longer confuses you</strong>.</p>
+      <p><strong>Order:</strong> Maths Skills → Exam Skills → Physics crash course → Chem (quick skim) and Bio crash courses → Sample questions + walkthroughs.</p>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section id="plan">
+    <h2>21-week plan</h2>
+    <p class="sub">Starts Monday 12 October 2026. Plan on about 12–18 hours a week: 1.5–2 hours on weeknights and a longer block on weekends. Tick tasks off as you go; your progress is saved in this browser.</p>
+
+    <div class="phasebar" id="phasebar" aria-hidden="true"></div>
+    <div class="phase-legend" id="phaseLegend"></div>
+
+    <div class="progress-row">
+      <div class="progress" aria-label="Overall progress"><div id="progFill"></div></div>
+      <span class="pct" id="progText">0 / 0 tasks</span>
+      <button class="ghost" id="expandAll">Expand all</button>
+      <button class="ghost" id="resetAll">Reset ticks</button>
+    </div>
+
+    <div id="weeks"></div>
+  </section>
+
+  <!-- DAILY -->
+  <section id="daily">
+    <h2>Daily routine</h2>
+    <p class="sub">These run every week alongside the weekly tasks. The maths drill is the habit that matters most. The author recommended worksheets for low-energy days when you're too tired to learn anything new.</p>
+    <div class="routine">
+      <div class="card"><div class="mins">15–20 min</div><span class="tag drill">Drill</span><p style="margin:6px 0 0">Calculator-free maths: rearranging, log laws, powers of 10, fractions to decimals, estimating. Use free online worksheets.</p></div>
+      <div class="card"><div class="mins">45–90 min</div><span class="tag j">Jesse</span><p style="margin:6px 0 0">Main block: watch a Jesse video and take notes in Phases 1–2, or do a question set and review it in Phases 3–5.</p></div>
+      <div class="card"><div class="mins">10 min</div><span class="tag">Recall</span><p style="margin:6px 0 0">Write yesterday's key formulas from memory without looking. Anything you missed goes on tomorrow's list.</p></div>
+      <div class="card"><div class="mins">1 day/wk</div><span class="tag">Rest</span><p style="margin:6px 0 0">Take one full day off each week. From the guide: "nurture the other aspects of your life, and don't lose hope."</p></div>
+    </div>
+  </section>
+
+  <!-- TOPICS -->
+  <section id="topics">
+    <h2>Physics &amp; maths checklist</h2>
+    <p class="sub">This is the high-school content to rebuild. Tick a topic only when you can do a Jesse practice question on it <em>without notes</em>. Your ticks are saved.</p>
+    <div class="topics" id="topicGrid"></div>
+  </section>
+
+  <!-- REVIEW -->
+  <section id="review">
+    <h2>Review system</h2>
+    <p class="sub">The guide called past ACER papers "the backbone" of their study: aim for quality over quantity, and review every question thoroughly. "Some days I'd spend 2 hours tearing my hair reviewing a single stem."</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>1 · Rate your confidence before you check</h3>
+        <p style="margin:0 0 12px; font-size:14px; color:var(--muted)">Mark each answer as high or low confidence, then mark it right or wrong.</p>
+        <div class="matrix">
+          <div class="h"></div><div class="h">Correct</div><div class="h">Incorrect</div>
+          <div class="rh">High confidence</div>
+          <div class="cell c-good"><b>Solid</b>Move on quickly.</div>
+          <div class="cell c-bad"><b>Misconception</b>The most dangerous case. Find the flawed belief and fix it.</div>
+          <div class="rh">Low confidence</div>
+          <div class="cell c-warn"><b>Lucky / fragile</b>Treat it as wrong. Work out what would have made you sure.</div>
+          <div class="cell c-acc"><b>Known gap</b>Name the gap and add it to next week's study list.</div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>2 · Name the error</h3>
+        <ul class="clean">
+          <li><strong>Knowledge gap:</strong> rewatch the Jesse video, then backfill with Khan Academy</li>
+          <li><strong>Missed keyword:</strong> underline every qualifier in the stem next time</li>
+          <li><strong>Misunderstood stem:</strong> rewrite the question in your own words before answering</li>
+          <li><strong>Calculation error:</strong> add the operation to your daily maths drill</li>
+          <li><strong>Too slow:</strong> practise estimating; round harder and check the answer options first</li>
+        </ul>
+        <h3 style="margin-top:16px">3 · Tag the skill</h3>
+        <p style="margin:0; font-size:14px">Label each question by what it tests, e.g. <span class="tag">bio · unfamiliar graph</span> <span class="tag">chem · pH large-number calc</span> <span class="tag">phys · rearrange + units</span> <span class="tag">ochem · H-counting</span>. Over time you'll start spotting these in the exam: "Most questions are asking very little of you other than identifying what they're asking for and what skills to use."</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h3>Error log template</h3>
+      <p style="margin:0 0 8px; font-size:14px; color:var(--muted)">Keep this in a notebook or spreadsheet. Every week, choose next week's study focus from the most common error type and skill tag.</p>
+      <div class="scroll-x">
+        <table class="log">
+          <thead><tr><th>Paper / Q</th><th>Subject</th><th>Skill tag</th><th>Conf.</th><th>Result</th><th>Error type</th><th>Fix / takeaway</th><th>Time</th></tr></thead>
+          <tbody>
+            <tr><td>ACER set 2 · Q14</td><td>Physics</td><td>Circuits: parallel R</td><td>High</td><td>✗</td><td>Misconception</td><td>Parallel total R is <em>less</em> than the smallest resistor. Rewatch Jesse's circuits video.</td><td>3:40</td></tr>
+            <tr><td>ACER set 2 · Q22</td><td>Chem</td><td>pH large-number calc</td><td>Low</td><td>✓</td><td>Lucky</td><td>Drill <code>log(a×10ⁿ) = n + log a</code> daily this week</td><td>2:10</td></tr>
+            <tr><td>ACER set 2 · Q31</td><td>Bio</td><td>Unfamiliar graph</td><td>High</td><td>✓</td><td>—</td><td>Read the axes first; this worked</td><td>1:30</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <h3>Building up stamina</h3>
+      <p style="margin:0">Untimed 10-question blocks → timed 10-question blocks → untimed half paper → timed half paper → full timed paper under exam conditions. The author scored about <strong>30%</strong> on their first untimed diagnostic. A low starting score is normal.</p>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <h2>Resources, in priority order</h2>
+    <p class="sub">Everything is free online except the official ACER material. The author didn't use Des O'Neill and still scored 85, so you don't need it either.</p>
+    <div class="res">
+      <div class="card top">
+        <div class="rank">1</div>
+        <div>
+          <h3>Jesse Osbourne <span class="tag j">Start here</span></h3>
+          <p><strong>Maths Skills and Exam Skills videos</strong> come first, followed by the <strong>crash course series</strong> (physics in depth; chem as a skim; bio). Then move to his <strong>sample questions and walkthrough videos</strong>, which closely resemble real exam questions.</p>
+          <p><a href="https://www.youtube.com/results?search_query=Jesse+Osbourne+GAMSAT" target="_blank" rel="noopener">Search for Jesse Osbourne GAMSAT on YouTube ↗</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rank">2</div>
+        <div>
+          <h3>Past ACER papers and question sets <span class="tag acer">Backbone</span></h3>
+          <p>The author found only 4–5 sets, and by the end had forgotten the first ones well enough to redo them. Use these for untimed blocks and review.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rank">3</div>
+        <div>
+          <h3>Official ACER practice material <span class="tag acer">Paid</span></h3>
+          <p>Save these for full timed papers in Phase 4, because they are closest to the current exam. Use them to practise pacing, choosing which questions to do first, and trading precision for time.</p>
+          <p><a href="https://gamsat.acer.org" target="_blank" rel="noopener">gamsat.acer.org ↗</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rank">4</div>
+        <div>
+          <h3>Khan Academy <span class="tag ka">Backfill only</span></h3>
+          <p>Use this when a Jesse video is too advanced. You'll probably need some <a href="https://www.khanacademy.org/science/physics" target="_blank" rel="noopener">Physics</a> and <a href="https://www.khanacademy.org/math/algebra2" target="_blank" rel="noopener">Algebra 2 (logs and exponents)</a>. Skip the chemistry course; you have that background already.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rank">5</div>
+        <div>
+          <h3>Online maths worksheets <span class="tag drill">Daily</span></h3>
+          <p>Practise rearranging, log laws, exponents and scientific notation. "You need to practice your log laws bro, trust me."</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="rank">6</div>
+        <div>
+          <h3>Organic Chemistry as a Second Language · 3000 Solved Problems in Organic Chemistry</h3>
+          <p>These are reference books only, for ochem gaps Jesse moves through too quickly. With your chem background you may barely need them. Use them to practise quick ochem mechanics such as counting hydrogens.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGINAL GUIDE -->
+  <section id="guide">
+    <h2>The original guide in brief</h2>
+    <p class="sub">Written by a graphic design graduate who hadn't studied chemistry or physics since Year 10. With 4 months of prep they scored <strong>85 in S3</strong> and <strong>75 overall</strong> in the March 2026 GAMSAT.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>Their 4-month timeline</h3>
+        <ul class="clean">
+          <li><strong>Month 1 · Basics.</strong> Worked through the whole Khan Academy chemistry course. Not efficient, but it kept them from giving up. <em>(You can skip this: your background already covers it.)</em></li>
+          <li><strong>Month 2 · Moving to skills.</strong> Did badly on the first practice test, and the first Jesse video went over their head. Studied one discipline at a time, sometimes spending a whole day on one stem.</li>
+          <li><strong>Month 3 · Drilling.</strong> Did lots of questions and relearned whatever slowed them down (acid–base came up repeatedly). Started watching the clock and practised estimating.</li>
+          <li><strong>Month 4 · Sharpening.</strong> Did full timed exams and cut anything that wasn't worth practising.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How this plan differs</h3>
+        <ul class="clean">
+          <li>You have <strong>~5 months</strong> instead of 4, so there's room for a slower physics rebuild and a lighter Christmas period.</li>
+          <li>Their Month 1 on <strong>chemistry</strong> becomes your Weeks 1–5 on <strong>maths and physics</strong>.</li>
+          <li>Jesse's videos come <em>first</em> for every topic, with Khan Academy as the fallback, not the other way round.</li>
+          <li>Question practice starts in Week 5, earlier than the original's Month 2.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top:24px">Lines worth remembering</h3>
+    <div class="quotes">
+      <blockquote>"If it won't help you gain speed in the exam, then don't waste time learning it."</blockquote>
+      <blockquote>"You've got to get very comfortable with seeing completely unfamiliar concepts, accepting your fate, and then taking your best crack with what you've got."</blockquote>
+      <blockquote>"Start doing practice questions as soon as u can. There's no other way to learn how ur knowledge translates to exam skills."</blockquote>
+      <blockquote>"Studying for the GAMSAT is all about feeling stupid, dealing with information overload, and keeping your head on straight through it all."</blockquote>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Before you rely on this plan, check the March 2027 sitting dates, the registration deadline and the current S3 format and timing on <a href="https://gamsat.acer.org" target="_blank" rel="noopener">gamsat.acer.org</a>. Your ticks are stored only in this browser.
+  </div>
+</footer>
+
+<script>
+(function () {
+  var START = new Date(2026, 9, 12); // Mon 12 Oct 2026
+  var PHASES = [
+    { id: 1, name: "Foundations", c: "var(--p1)", weeks: [1, 5], blurb: "Jesse Maths and Exam Skills, then physics mechanics. Daily algebra." },
+    { id: 2, name: "Build", c: "var(--p2)", weeks: [6, 10], blurb: "Finish Jesse physics, skim chem, do bio. Start untimed blocks." },
+    { id: 3, name: "Drill", c: "var(--p3)", weeks: [11, 16], blurb: "ACER question sets, review log, fix weak spots. Lighter over Christmas." },
+    { id: 4, name: "Sharpen", c: "var(--p4)", weeks: [17, 20], blurb: "Full timed official papers. Pacing, choosing questions, estimating." },
+    { id: 5, name: "Taper", c: "var(--p5)", weeks: [21, 21], blurb: "Light review, sleep, exam logistics." }
+  ];
+
+  var WEEKS = [
+    { t: "Diagnostic + Jesse Maths Skills I", g: "Get a baseline and set up your system. A low score is expected.", k: [
+      "Check ACER for March 2027 dates and the registration deadline, then register",
+      "Do one untimed diagnostic block (10–20 mixed S3 questions) and record your score without worrying about it",
+      "Jesse Maths Skills: arithmetic without a calculator, fractions, scientific notation, estimation (paper notes)",
+      "Set up your error log (notebook or spreadsheet) using the template below",
+      "Daily: 15–20 min calculator-free maths worksheet" ] },
+    { t: "Jesse Maths Skills II + Exam Skills", g: "Rearranging equations and logs need to become automatic.", k: [
+      "Jesse Maths Skills: rearranging equations, proportionality (\"if x doubles, y…\"), exponents and logs",
+      "Backfill on Khan Academy: logarithm properties and exponent rules if anything is shaky",
+      "Jesse Exam Skills videos: how to approach a stem, eliminating options, estimating",
+      "Log laws drill sheet every day this week",
+      "Write a one-page \"maths toolkit\" summary from your notes" ] },
+    { t: "Physics I: units, kinematics, forces", g: "Rebuild mechanics from scratch with Jesse.", k: [
+      "Jesse physics crash course: units, dimensional analysis, vectors/components",
+      "Jesse physics: kinematics (SUVAT equations, projectiles) and pause to do each question first",
+      "Jesse physics: Newton's laws, friction, inclined planes, free-body diagrams",
+      "Khan Academy backfill only where Jesse moved too fast (1D/2D motion, forces)",
+      "Rewatch any video that still confuses you until it doesn't" ] },
+    { t: "Physics II: energy, momentum, graphs", g: "Add energy methods; learn to read graphs.", k: [
+      "Jesse physics: work, kinetic/potential energy, conservation of energy, power",
+      "Jesse physics: momentum, impulse, collisions",
+      "Maths: graph skills: gradients, area under curve, log scales, linearising (y vs 1/x, ln y vs x)",
+      "Make your physics formula sheet from memory, then check it against your notes",
+      "Daily maths drill (keep going)" ] },
+    { t: "Physics III: fluids, gases, heat + first questions", g: "First checkpoint: try physics questions.", k: [
+      "Jesse physics: pressure, density, buoyancy, hydrostatics, continuity/flow",
+      "Jesse physics: ideal gas law, heat, specific heat, latent heat, thermodynamics basics",
+      "First untimed 10-question physics block (Jesse sample questions); log every error",
+      "Review: tag each question with skill + error type",
+      "Revisit the weakest topic from your log" ] },
+    { t: "Physics IV: electricity", g: "Circuits come up often in S3 and are quick to learn.", k: [
+      "Jesse physics: charge, Coulomb's law, electric fields and potential",
+      "Jesse physics: current, Ohm's law, power, series vs parallel, capacitors",
+      "Khan Academy backfill: circuits if series/parallel isn't automatic",
+      "Untimed 10-question mixed physics block + full review",
+      "Daily maths drill" ] },
+    { t: "Physics V: waves & optics", g: "Finish the high-yield physics.", k: [
+      "Jesse physics: waves, v = fλ, sound, intensity and decibels (logs again)",
+      "Jesse physics: light, refraction/Snell's law, lenses and mirrors, thin lens equation",
+      "Two untimed 10-question mixed physics blocks + review",
+      "Update your formula sheet; write it from memory once" ] },
+    { t: "Physics VI + chem skim", g: "Close out physics; use your chem strength.", k: [
+      "Jesse physics: radioactivity, half-life, decay types, magnetism basics",
+      "Jesse chem crash course at 1.5×: flag anything that isn't instantly familiar",
+      "Re-sharpen fast chem calcs: pH/pOH with large numbers, equilibrium, dilutions, stoichiometry",
+      "Untimed chem block: check how fast you are compared with physics",
+      "Tick off remaining physics topics in the checklist" ] },
+    { t: "Organic chem + bio crash course", g: "Quick ochem refresh; bio is mostly reading.", k: [
+      "Jesse ochem videos: isomers, stereochemistry, functional groups, mechanisms (OCaaSL only if rusty)",
+      "Practise fast ochem mechanics: counting H's, chirality centres, formula from structure",
+      "Jesse bio crash course: cells, genetics/inheritance, physiology",
+      "Untimed bio block: focus on unfamiliar-graph questions",
+      "Daily maths drill" ] },
+    { t: "Jesse sample questions & walkthroughs", g: "Shift from learning content to exam skills.", k: [
+      "Jesse sample questions + walkthrough videos (physics-heavy)",
+      "First untimed half paper (~35–40 questions, mixed)",
+      "Thorough review: confidence × correctness for every question",
+      "Build your skill-tag list from the questions you've seen so far",
+      "Write your top-5 weaknesses for the Christmas weeks" ] },
+    { t: "Christmas week (light)", g: "Keep the habit going, but rest.", k: [
+      "Daily 15-min maths drill (that's enough)",
+      "Rewatch Jesse notes on your weakest topic",
+      "Take real days off" ] },
+    { t: "New Year week (light)", g: "Ease back in.", k: [
+      "Rewatch Jesse notes on your second-weakest topic",
+      "One untimed 10-question block + review",
+      "Plan January: list your ACER question sets and assign one per week" ] },
+    { t: "ACER set #1", g: "Past ACER material is now the core of your study.", k: [
+      "ACER past paper / question set #1 in untimed 10–20 question blocks",
+      "Full review: confidence, error type, skill tag for every question",
+      "Fill the top gap from the log (Jesse first, Khan Academy if needed)",
+      "Daily maths drill: logs + scientific notation" ] },
+    { t: "ACER set #2 + start watching the clock", g: "Start checking whether you're on pace.", k: [
+      "ACER set #2 in blocks; note your time per question",
+      "Work out your target pace from the current ACER S3 timing",
+      "Fill the most common error type from your log",
+      "Drill: estimating, rounding hard and using the answer options" ] },
+    { t: "ACER set #3 timed + triage", g: "Learn to skip questions and come back.", k: [
+      "ACER set #3 in timed blocks",
+      "Practise triage: flag and skip anything over ~1.5× your target pace",
+      "Review all questions, including flagged ones you got right",
+      "Relearn the topic that keeps slowing you down (for the author this was acid–base)" ] },
+    { t: "ACER set #4 + gap sweep", g: "Clear your three biggest recurring error types.", k: [
+      "ACER set #4 timed (half paper)",
+      "From your log, list your top 3 error categories and drill each",
+      "Formula sheet from memory, with no gaps",
+      "Daily maths drill" ] },
+    { t: "Full timed official paper #1", g: "Practise under exam conditions.", k: [
+      "Official ACER practice paper #1: full, timed, at the same time of day as the real S3",
+      "Full review (this takes a while, so allow for it)",
+      "Analyse pacing: where you lost time and where you could have guessed",
+      "Targeted drill on the worst skill tag" ] },
+    { t: "Full timed official paper #2", g: "Fix your pacing.", k: [
+      "Official ACER practice paper #2: full timed",
+      "Review + update error log",
+      "Redo ACER set #1 (you'll have forgotten enough to reuse it)",
+      "Drill: unfamiliar-concept stems; take your best guess and move on" ] },
+    { t: "Full timed paper #3 + recycled sets", g: "Get faster and more accurate.", k: [
+      "Official ACER paper #3 (or a recycled earlier set, timed)",
+      "Review + update error log",
+      "Redo ACER set #2 timed",
+      "Rewatch Jesse walkthroughs for the question types you miss most" ] },
+    { t: "Final full dress rehearsal", g: "Last full paper.", k: [
+      "Final full timed paper under real exam conditions (same start time, same breaks)",
+      "Light review: focus on misconceptions (high-confidence wrong answers)",
+      "Finalise one-page formula + maths toolkit sheet",
+      "Confirm exam logistics: venue/online setup, ID, travel" ] },
+    { t: "Taper week", g: "Rest and keep things light.", k: [
+      "Formula sheet from memory once or twice. No new content.",
+      "A few easy 10-question blocks to stay sharp",
+      "Sleep, eat well, exercise",
+      "Exam day: read the stem, find what's being asked, pick the skill, make your best guess" ] }
+  ];
+
+  var TOPICS = [
+    { h: "Maths toolkit", s: "Jesse Maths Skills", items: [
+      "Rearranging equations quickly (isolate any variable)",
+      "Scientific notation: multiply/divide powers of 10",
+      "Log laws: <code>log(ab)</code>, <code>log(a/b)</code>, <code>log(aⁿ)</code>, <code>log 2 ≈ 0.3</code>, <code>log 3 ≈ 0.48</code>",
+      "Exponentials and half-life: <code>N = N₀(½)^(t/T)</code>",
+      "Proportional reasoning: \"if r doubles, F becomes…\"",
+      "Unit conversions and prefixes (μ, m, k, M)",
+      "Estimation: round hard, compare options",
+      "Graphs: gradient, area under, log scales, linearising",
+      "Basic trig: sin/cos/tan for vector components" ] },
+    { h: "Mechanics", s: "Jesse Physics", items: [
+      "SUVAT kinematics + projectiles",
+      "Newton's laws, <code>F = ma</code>, free-body diagrams",
+      "Friction & inclined planes",
+      "Work, KE, PE, conservation of energy, power",
+      "Momentum, impulse, collisions",
+      "Circular motion & gravity basics",
+      "Torque & equilibrium (levers)" ] },
+    { h: "Fluids, gases & heat", s: "Jesse Physics", items: [
+      "Density, pressure, <code>P = ρgh</code>",
+      "Buoyancy (Archimedes)",
+      "Continuity <code>A₁v₁ = A₂v₂</code> & basic flow",
+      "Ideal gas law <code>PV = nRT</code>",
+      "Specific heat & latent heat",
+      "Thermodynamics basics (1st law)" ] },
+    { h: "Electricity & magnetism", s: "Jesse Physics", items: [
+      "Coulomb's law & electric fields",
+      "Electric potential & potential energy",
+      "Ohm's law <code>V = IR</code>, power <code>P = VI</code>",
+      "Series vs parallel resistors",
+      "Capacitors basics",
+      "Magnetic force on charges/wires (basics)" ] },
+    { h: "Waves, optics & nuclear", s: "Jesse Physics", items: [
+      "<code>v = fλ</code>, wave properties",
+      "Sound, intensity, decibels",
+      "Refraction & Snell's law",
+      "Lenses/mirrors, thin lens equation",
+      "Radioactive decay types (α, β, γ)",
+      "Half-life calculations" ] },
+    { h: "Chem: speed check", s: "Your strength; aim for speed", items: [
+      "pH/pOH with large numbers (no calculator)",
+      "Equilibrium & Le Chatelier",
+      "Stoichiometry & dilutions in your head",
+      "Electrochem & redox",
+      "Ochem: isomers, chirality, H-counting fast" ] }
+  ];
+
+  var KEY = "gamsat-s3-2027-v1";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  function phaseOf(w) { for (var i = 0; i < PHASES.length; i++) if (w >= PHASES[i].weeks[0] && w <= PHASES[i].weeks[1]) return PHASES[i]; }
+  function addDays(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+  var fmt = function (d) { return d.toLocaleDateString("en-AU", { day: "numeric", month: "short" }); };
+
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var currentWeek = Math.floor((today - START) / (7 * 864e5)) + 1;
+
+  // Phase strip + legend
+  var bar = document.getElementById("phasebar"), leg = document.getElementById("phaseLegend");
+  PHASES.forEach(function (p) {
+    var n = p.weeks[1] - p.weeks[0] + 1;
+    var s = document.createElement("span"); s.style.background = p.c; s.style.flex = n; bar.appendChild(s);
+    var a = addDays(START, (p.weeks[0] - 1) * 7), b = addDays(START, p.weeks[1] * 7 - 1);
+    var c = document.createElement("div"); c.className = "card"; c.style.setProperty("--c", p.c);
+    c.innerHTML = "<h3>" + p.id + " · " + p.name + "</h3><div class='when'>Wk " + p.weeks[0] + (n > 1 ? "–" + p.weeks[1] : "") + " · " + fmt(a) + " – " + fmt(b) + "</div><p>" + p.blurb + "</p>";
+    leg.appendChild(c);
+  });
+
+  // Weeks
+  var host = document.getElementById("weeks");
+  WEEKS.forEach(function (w, i) {
+    var n = i + 1, p = phaseOf(n), d = addDays(START, i * 7);
+    var det = document.createElement("details"); det.className = "week"; det.style.setProperty("--c", p.c);
+    if (n === currentWeek) { det.classList.add("current"); det.open = true; }
+    var sum = document.createElement("summary");
+    sum.innerHTML = "<span class='wk'>Week " + n + "</span><span class='dt'>" + fmt(d) + " – " + fmt(addDays(d, 6)) + "</span><span class='ti'>" + w.t + "</span>" +
+      (n === currentWeek ? "<span class='now'>THIS WEEK</span>" : "") + "<span class='ct' data-ct='" + n + "'></span>";
+    det.appendChild(sum);
+    var body = document.createElement("div"); body.className = "body";
+    body.innerHTML = "<p class='goal'>" + w.g + "</p>";
+    w.k.forEach(function (task, j) { body.appendChild(makeTask("w" + n + "-" + j, task, function () { updateWeek(n); })); });
+    det.appendChild(body); host.appendChild(det);
+    updateWeek(n, true);
+  });
+
+  // Topics
+  var grid = document.getElementById("topicGrid");
+  TOPICS.forEach(function (t, i) {
+    var c = document.createElement("div"); c.className = "card";
+    c.innerHTML = "<h3>" + t.h + " <small>" + t.s + "</small></h3>";
+    t.items.forEach(function (it, j) { c.appendChild(makeTask("t" + i + "-" + j, it)); });
+    grid.appendChild(c);
+  });
+
+  function makeTask(id, html, cb) {
+    var l = document.createElement("label"); l.className = "task";
+    var cbx = document.createElement("input"); cbx.type = "checkbox"; cbx.checked = !!state[id];
+    var s = document.createElement("span"); s.className = "t"; s.innerHTML = html;
+    if (cbx.checked) l.classList.add("done");
+    cbx.addEventListener("change", function () {
+      if (cbx.checked) state[id] = 1; else delete state[id];
+      l.classList.toggle("done", cbx.checked); save(); if (cb) cb(); updateTotals();
+    });
+    l.appendChild(cbx); l.appendChild(s); return l;
+  }
+
+  function updateWeek(n) {
+    var total = WEEKS[n - 1].k.length, done = 0;
+    for (var j = 0; j < total; j++) if (state["w" + n + "-" + j]) done++;
+    var el = document.querySelector("[data-ct='" + n + "']"); if (el) el.textContent = done + "/" + total;
+  }
+
+  function updateTotals() {
+    var total = 0, done = 0;
+    WEEKS.forEach(function (w, i) { w.k.forEach(function (_, j) { total++; if (state["w" + (i + 1) + "-" + j]) done++; }); });
+    var pct = total ? Math.round(done / total * 100) : 0;
+    document.getElementById("progFill").style.width = pct + "%";
+    document.getElementById("progText").textContent = done + " / " + total + " tasks";
+    document.getElementById("pctDone").textContent = pct + "%";
+  }
+  updateTotals();
+
+  // Countdown
+  var dateInput = document.getElementById("examDate");
+  try { var saved = localStorage.getItem(KEY + "-exam"); if (saved) dateInput.value = saved; } catch (e) {}
+  function updateCountdown() {
+    var parts = dateInput.value.split("-");
+    if (parts.length !== 3) return;
+    var ex = new Date(+parts[0], +parts[1] - 1, +parts[2]);
+    var days = Math.round((ex - today) / 864e5);
+    document.getElementById("daysLeft").textContent = days >= 0 ? days : "Done";
+  }
+  dateInput.addEventListener("change", function () {
+    try { localStorage.setItem(KEY + "-exam", dateInput.value); } catch (e) {}
+    updateCountdown();
+  });
+  updateCountdown();
+  document.getElementById("weekNow").textContent =
+    currentWeek < 1 ? "0 / " + WEEKS.length : currentWeek > WEEKS.length ? "Exam" : currentWeek + " / " + WEEKS.length;
+
+  // Controls
+  var expandBtn = document.getElementById("expandAll"), expanded = false;
+  expandBtn.addEventListener("click", function () {
+    expanded = !expanded;
+    document.querySelectorAll("details.week").forEach(function (d) { d.open = expanded || d.classList.contains("current"); });
+    expandBtn.textContent = expanded ? "Collapse all" : "Expand all";
+  });
+  document.getElementById("resetAll").addEventListener("click", function () {
+    if (!confirm("Clear all ticks (weekly tasks and topic checklist)?")) return;
+    state = {}; save();
+    document.querySelectorAll("label.task input").forEach(function (c) { c.checked = false; c.parentNode.classList.remove("done"); });
+    for (var n = 1; n <= WEEKS.length; n++) updateWeek(n);
+    updateTotals();
+  });
+})();
+</script>
+</body>
+</html>
